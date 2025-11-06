@@ -26,20 +26,27 @@ class MainActivity : AppCompatActivity(), PostAdapter.PostItemListener {
         binding.rvPosts.layoutManager = LinearLayoutManager(this)
         binding.rvPosts.adapter = adapter
 
-        postDao.getAllPosts().observe(this) {
-            posts -> adapter.updatePosts(posts)
+        postDao.getAllPosts().observe(this) { posts ->
+            if (posts.isEmpty()) {
+                appExecutors.diskIO.execute {
+                    postDao.insert(Post(username = "intan_dwi", caption = "Max Verstappen GAS!!!", imageUri = "android.resource://com.reynaldi.posttestpertemuan5/drawable/post_image_1", profileImageResId = R.drawable.people))
+                    postDao.insert(Post(username = "minda_04", caption = "Jumat jumawa, Minggu Bela Sungkawaa️", imageUri = "android.resource://com.reynaldi.posttestpertemuan5/drawable/post_image_2", profileImageResId = R.drawable.people2))
+                    postDao.insert(Post(username = "rubi_community", caption = "Lewis Ngawilton", imageUri = "android.resource://com.reynaldi.posttestpertemuan5/drawable/post_image_3", profileImageResId = R.drawable.people1))
+                }
+            }
+            adapter.updatePosts(posts)
         }
 
         // Setup Stories RecyclerView
         binding.rvStories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val stories: List<Story> = listOf(
-            Story(username = "reynaldi_123", profileImage = R.drawable.ic_profile_1),
-            Story(username = "pengguna_dua", profileImage = R.drawable.ic_profile_1),
-            Story(username = "tiga_pengguna", profileImage = R.drawable.ic_profile_1),
-            Story(username = "user_empat", profileImage = R.drawable.ic_profile_1),
-            Story(username = "lima_pengguna", profileImage = R.drawable.ic_profile_1),
-            Story(username = "enam_pengguna", profileImage = R.drawable.ic_profile_1),
-            Story(username = "tujuh_pengguna", profileImage = R.drawable.ic_profile_1)
+            Story(username = "Reynaldi", profileImage = R.drawable.people),
+            Story(username = "Galih", profileImage = R.drawable.people1),
+            Story(username = "rubi_community", profileImage = R.drawable.people2),
+            Story(username = "rizka", profileImage = R.drawable.people3),
+            Story(username = "amel", profileImage = R.drawable.people4),
+            Story(username = "Fulan", profileImage = R.drawable.people5),
+            Story(username = "Fulano", profileImage = R.drawable.people4)
         )
         val storyAdapter = StoryAdapter(stories)
         binding.rvStories.adapter = storyAdapter

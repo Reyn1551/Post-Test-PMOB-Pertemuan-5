@@ -98,9 +98,9 @@ class AddPostFragment : BottomSheetDialogFragment() {
         }
 
         val profileResId = if (username.contains("reynaldi", true)) {
-            R.drawable.ic_profile_1
+            R.drawable.people
         } else {
-            R.drawable.ic_profile_2
+            R.drawable.people1
         }
 
         appExecutors.diskIO.execute {
