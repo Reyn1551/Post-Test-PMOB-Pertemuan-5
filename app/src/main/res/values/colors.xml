@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sweet Color Palette -->
+    <color name="primary">#81C784</color> <!-- Soft Green -->
+    <color name="primary_dark">#519657</color> <!-- Darker Green -->
+    <color name="primary_light">#B2FAB4</color> <!-- Lighter Green -->
+    <color name="accent">#FFAB91</color> <!-- Soft Orange/Peach -->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Custom colors from the original code -->
+    <color name="app_bg">#F0F2F5</color>
+    <color name="fab_color">#007AFF</color>
+</resources>

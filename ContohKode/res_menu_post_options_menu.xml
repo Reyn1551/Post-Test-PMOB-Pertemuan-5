@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Menu yang muncul saat tombol titik tiga di klik -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_edit"
+        android:title="Edit Post" />
+    <item
+        android:id="@+id/menu_delete"
+        android:title="Hapus Post" />
+</menu>
