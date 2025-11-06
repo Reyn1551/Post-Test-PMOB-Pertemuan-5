@@ -1,6 +1,7 @@
 package com.reynaldi.posttestpertemuan5
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reynaldi.posttestpertemuan5.databinding.ActivityMainBinding
@@ -65,6 +66,9 @@ class MainActivity : AppCompatActivity(), PostAdapter.PostItemListener {
     override fun onDeleteClick(post: Post) {
         appExecutors.diskIO.execute {
             postDao.delete(post)
+            runOnUiThread {
+                Toast.makeText(this, "Berhasil dihapus", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
